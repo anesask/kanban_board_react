@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { List } from "./components/List";
+import { GlobalProvider, GlobalContext } from "./context/GlobalState";
 
 function App() {
+  const { lists } = useContext(GlobalContext);
+  // console.log(lists);
   return (
-    <section className="section">
-      <div className="container is-widescreen">
-        <div className="columns is-multiline">
-          <div className="column is-one-quarter">
-            <List />
+    <GlobalProvider>
+      <section className="section is-mobile">
+        <div className="container">
+          <div className="columns is-multiline">
+            {lists.map((list) => (
+              <List key={list.id} title={list.title} cards={list.cards} />
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </GlobalProvider>
   );
 }
 

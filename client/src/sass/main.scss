@@ -1,1 +1,10 @@
-@import '../../node_modules/bulma/bulma.sass';
+@import "../../node_modules/bulma/bulma.sass";
+
+.btn-hover {
+  //   visibility: hidden;
+  opacity: 0;
+  &:hover{
+      opacity: 1;
+  }
+}
+
