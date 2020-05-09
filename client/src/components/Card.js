@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import { GlobalContext } from "../context/GlobalState";
+import React from "react";
+// import { GlobalContext } from "../context/GlobalState";
 
-export const Card = ({ cardID, text }) => {
-  const { deleteCard } = useContext(GlobalContext);
+export const Card = ({ id, text }) => {
+  // const { deleteCard } = useContext(GlobalContext);
   return (
     <li className="list-item">
       {text}
-      <button
+      {/* <button
         className="delete is-pulled-right btn-hover"
-        onClick={() => deleteCard(cardID)}
-      />
+        onClick={() => deleteCard(id)}
+      /> */}
     </li>
   );
 };

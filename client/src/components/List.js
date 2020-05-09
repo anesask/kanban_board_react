@@ -1,8 +1,11 @@
 import React from "react";
 import { Card } from "./Card";
-import { ActionButton } from "./ActionButton";
+import { AddList } from "./AddList";
+// import { ActionButton } from "./ActionButton";
+// import { GlobalContext } from "../context/GlobalState";
+
 export const List = ({ title, cards }) => {
-  console.log();
+  // const { deleteCard } = useContext(GlobalContext);
   return (
     <div className="column">
       <div className="card">
@@ -10,11 +13,13 @@ export const List = ({ title, cards }) => {
           <p className="title is-4">{title}</p>
           <ul className="list is-hoverable">
             {cards.map((card) => (
-              <Card cardID={card.id} key={card.id} text={card.text} />
+              <Card id={card.id} key={card.id} text={card.text} />
             ))}
           </ul>
+          <AddList/>
         </div>
-        <ActionButton/>
+        
+        {/* <ActionButton /> */}
       </div>
     </div>
   );

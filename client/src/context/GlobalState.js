@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import AppReducer from './AppReducer';
+import AppReducer from "./AppReducer";
 
 // Initial sate
 const initialState = {
@@ -42,17 +42,23 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Actions
-  function deleteCard(id){
-    console.log('Delete fired!');
+  function deleteList(id) {
+    console.log("Delete card");
     dispatch({
-      type: 'DELETE_CARD',
-      payload: id
-    })
+      type: "DELETE_LIST",
+      payload: id,
+    });
+  }
+  function addList(lists) {
+    console.log("Add Card");
+    dispatch({
+      type: "ADD_LIST",
+      payload: lists,
+    });
   }
 
-
   return (
-    <GlobalContext.Provider value={{ lists: state.lists, deleteCard }}>
+    <GlobalContext.Provider value={{ lists: state.lists, addList, deleteList }}>
       {children}
     </GlobalContext.Provider>
   );
