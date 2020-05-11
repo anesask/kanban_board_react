@@ -1,22 +1,30 @@
 import React, { useContext } from "react";
-import { List } from "./components/List";
-import { GlobalProvider, GlobalContext } from "./context/GlobalState";
+import Column from "./components/Column";
+import DrgDrpContext from "./provider/DragDropProvider";
+import { DragDropContext } from "react-beautiful-dnd";
 
 function App() {
-  const { lists } = useContext(GlobalContext);
-  // console.log(lists);
+  const { state, onDragEnd } = useContext(DrgDrpContext);
+
   return (
-    <GlobalProvider>
-      <section className="section is-mobile">
-        <div className="container">
-          <div className="columns is-multiline">
-            {lists.map((list) => (
-              <List key={list.id} title={list.title} cards={list.cards} />
-            ))}
-          </div>
-        </div>
-      </section>
-    </GlobalProvider>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="container">
+        {state.columnsOrder.map((columnId, index) => {
+          const column = state.columns[columnId];
+          const isEditing = column.isEditing;
+          const task = column.tasksOrder.map((taskId) => state.tasks[taskId]);
+          return (
+            <Column
+              key={column.id}
+              tasks={task}
+              index={index}
+              column={column}
+              isEditing={isEditing}
+            />
+          );
+        })}
+      </div>
+    </DragDropContext>
   );
 }
 
