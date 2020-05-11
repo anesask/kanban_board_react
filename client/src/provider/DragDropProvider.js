@@ -50,8 +50,7 @@ const DragDropProvider = ({ children }) => {
     const newTaskId = `task-${tasksLength + 1}`;
     const taskContent = { id: newTaskId, content: newTask };
 
-    tasks[newTaskId] = taskContent;
-
+    tasks[newTaskId] = taskContent; 
     // adding the new task id to the column object
     const newTasksOrder = [...column.tasksOrder];
     newTasksOrder.push(newTaskId);

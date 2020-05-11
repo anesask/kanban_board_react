@@ -9,20 +9,22 @@ function App() {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="container">
-        {state.columnsOrder.map((columnId, index) => {
-          const column = state.columns[columnId];
-          const isEditing = column.isEditing;
-          const task = column.tasksOrder.map((taskId) => state.tasks[taskId]);
-          return (
-            <Column
-              key={column.id}
-              tasks={task}
-              index={index}
-              column={column}
-              isEditing={isEditing}
-            />
-          );
-        })}
+        <div className="columns">
+          {state.columnsOrder.map((columnId, index) => {
+            const column = state.columns[columnId];
+            const isEditing = column.isEditing;
+            const task = column.tasksOrder.map((taskId) => state.tasks[taskId]);
+            return (
+              <Column
+                key={column.id}
+                tasks={task}
+                index={index}
+                column={column}
+                isEditing={isEditing}
+              />
+            );
+          })}
+        </div>
       </div>
     </DragDropContext>
   );

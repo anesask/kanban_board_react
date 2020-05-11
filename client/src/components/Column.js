@@ -5,22 +5,27 @@ import { Droppable } from "react-beautiful-dnd";
 
 const Column = React.memo(({ tasks, column, isEditing }) => {
   return (
-    <div className="">
-      <h1>{column.title}</h1>
-      <Droppable droppableId={column.id}>
-        {(provided, snapshot) => (
-          <div
-            className=""
-            {...provided.droppableProps}
-            ref={provided.innerRef}
-            isDraggingOver={snapshot.isDraggingOver}
-          >
-            <AllTasks tasks={tasks} />
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-      <AddTask columnId={column.id} isEditing={isEditing} />
+    <div className="column">
+      <div className="card">
+        
+        <div className="card-content">
+        <p className="title is-4">{column.title}</p>
+          <Droppable droppableId={column.id}>
+            {(provided, snapshot) => (
+              <div
+                className="list is-hoverable"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+                // isDraggingOver={snapshot.isDraggingOver}
+              >
+                <AllTasks tasks={tasks} />
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </div>
+        <AddTask columnId={column.id} isEditing={isEditing} />
+      </div>
     </div>
   );
 });

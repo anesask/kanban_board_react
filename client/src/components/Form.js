@@ -6,19 +6,32 @@ const Form = ({ columnId }) => {
   let newTask = useRef(null);
   const handleAddClick = () => {
     endEditing(columnId);
-    addData(columnId, newTask.value);
+    if(newTask.value === ''){
+      alert('Task cannot be empty!')
+    } else {
+      addData(columnId, newTask.value);
+    }
+    
   };
 
   return (
-    <form>
+    <form className="card-content has-background-white-ter">
       <input
+        // name="fname"
+        autoFocus
         className="input"
         type="text"
         placeholder="Enter your task here..."
         ref={(val) => (newTask = val)}
         defaultValue=""
+        minLength="2"
+        maxLength="60"
       />
-      <button className="button is-primary" onClick={handleAddClick}>
+      <button
+        type="button"
+        className="button is-primary swing-in-bottom-bck"
+        onClick={handleAddClick}
+      >
         Add Task
       </button>
     </form>

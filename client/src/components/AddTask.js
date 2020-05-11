@@ -8,9 +8,13 @@ const AddTask = ({ columnId, isEditing }) => {
     return <Form columnId={columnId} />;
   } else {
     return (
-      <button onClick={() => handleEditing(columnId)} className="">
+     
+        <div className="has-text-centered ">
+        <button onClick={() => handleEditing(columnId)} className="button is-primary" autoFocus>
         + Add Task
       </button>
+        </div>
+    
     );
   }
 };

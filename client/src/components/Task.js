@@ -10,10 +10,15 @@ const Task = React.memo(({ task, index }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
-          isDragging={snapshot.isDragging}
+          // isDragging={snapshot.isDragging}
         >
           {task.content}
+          <button
+        className="delete is-pulled-right btn-hover"
+        
+      />
         </li>
+        
       )}
     </Draggable>
   );
