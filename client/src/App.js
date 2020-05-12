@@ -10,6 +10,7 @@ function App() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="section bg-full">
         <div className="container bg-blue">
+        
         <div className="columns is-multiline is-mobile">
           {state.columnsOrder.map((columnId, index) => {
             const column = state.columns[columnId];

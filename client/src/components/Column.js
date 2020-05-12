@@ -9,7 +9,7 @@ const Column = React.memo(({ tasks, column, isEditing }) => {
       <div className="card card-radius ">
         
         <div className="card-content">
-        <p className="title is-4 has-text-white">{column.title}</p>
+        <p className="title is-5 has-text-white">{column.title}</p>
           <Droppable droppableId={column.id}>
             {(provided, snapshot) => (
               <div
