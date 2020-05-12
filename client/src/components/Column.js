@@ -5,11 +5,11 @@ import { Droppable } from "react-beautiful-dnd";
 
 const Column = React.memo(({ tasks, column, isEditing }) => {
   return (
-    <div className="column">
-      <div className="card">
+    <div className="column is-marginless">
+      <div className="card card-radius ">
         
         <div className="card-content">
-        <p className="title is-4">{column.title}</p>
+        <p className="title is-4 has-text-white">{column.title}</p>
           <Droppable droppableId={column.id}>
             {(provided, snapshot) => (
               <div

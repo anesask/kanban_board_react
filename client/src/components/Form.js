@@ -6,18 +6,16 @@ const Form = ({ columnId }) => {
   let newTask = useRef(null);
   const handleAddClick = () => {
     endEditing(columnId);
-    if(newTask.value === ''){
-      alert('Task cannot be empty!')
+    if (newTask.value === "") {
+      alert("Task cannot be empty!");
     } else {
       addData(columnId, newTask.value);
     }
-    
   };
 
   return (
-    <form className="card-content has-background-white-ter">
+    <form className="card-content bg-form swing-in-bottom-bck">
       <input
-        // name="fname"
         autoFocus
         className="input"
         type="text"
@@ -29,7 +27,7 @@ const Form = ({ columnId }) => {
       />
       <button
         type="button"
-        className="button is-primary swing-in-bottom-bck"
+        className="button has-text-white swing-in-bottom-bck"
         onClick={handleAddClick}
       >
         Add Task
